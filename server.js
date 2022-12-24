@@ -19,7 +19,7 @@ app.use(formData.parse())
 
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('/todos', todosRouter)
+app.use('/api/todos', todosRouter)
 
 app.use(function (req, res, next) {
   res.status(404).json({ err: 'Not found' })
