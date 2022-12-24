@@ -20,6 +20,8 @@ const todoSchema = new mongoose.Schema(
     {timestamps: true,}
 )
 
+const Todo = mongoose.model('Todo', todoSchema)
+
 export {
     Todo
 }
