@@ -20,6 +20,18 @@ const create = async (req, res) => {
       return res.status(500).json(err)
     }
   }
+
+
+  const show = async (req, res) => {
+    Todo.findById(req.params.id)
+    try{(todo => 
+      res.json(todo))
+    } catch (err) {
+      return res.status(500).json(err)
+    }
+  }
+
+
 export {
-    create, index
+    create, index, show
 }
