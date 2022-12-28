@@ -8,6 +8,8 @@ router.get('/:id', todosCtrl.show)
 
 router.post('/', todosCtrl.create)
 
+router.put('/:id', todosCtrl.update)
+
 
 
 
