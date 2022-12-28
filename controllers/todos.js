@@ -1,7 +1,6 @@
 import { Todo } from "../models/todo.js";
 
 const create = async (req, res) => {
-    console.log("is it even trying?")
     try{
       const todo = await new Todo(req.body)
       await todo.save()
@@ -23,10 +22,12 @@ const create = async (req, res) => {
 
 
   const show = async (req, res) => {
-    Todo.findById(req.params.id)
-    try{(todo => 
-      res.json(todo))
+    try {
+      console.log(req.params.id)
+      const todo = await Todo.findById(req.params.id)
+      return res.status(200).json(todo)
     } catch (err) {
+      console.log("error tripped here")
       return res.status(500).json(err)
     }
   }
