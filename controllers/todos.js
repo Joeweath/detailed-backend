@@ -32,12 +32,16 @@ const create = async (req, res) => {
 
   const update = async (req, res) => {
     try {
-      const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+      console.log(req.body, req.query)
+      const todo = await Todo.findByIdAndUpdate(req.body._id, req.body, {new: true})
       return res.status(200).json(todo)
     } catch (err){
+      console.log("coming here instead")
       return res.status(500).json(err)
     }
   }
+
+  
 
 
 export {
