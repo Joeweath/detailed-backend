@@ -10,6 +10,8 @@ router.post('/', todosCtrl.create)
 
 router.put('/:id', todosCtrl.update)
 
+router.delete('/:id', todosCtrl.deleteTodo)
+
 
 
 
