@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+const Schema = mongoose.Schema;
+
+
 const todoSchema = new mongoose.Schema(
     {
         title: {
@@ -16,6 +19,8 @@ const todoSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
+
+        owner: { type: Schema.Types.ObjectId, ref: "Profile" }
     },
     {timestamps: true,}
 )
