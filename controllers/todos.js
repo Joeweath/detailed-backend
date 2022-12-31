@@ -39,20 +39,34 @@ const create = async (req, res) => {
     }
   }
 
+  // const deleteTodo = async (req, res) => {
+  //   console.log("try", req.body, req.params)
+  //   try{
+  //     await Todo.findByIdAndRemove(req.params._id, req.body)
+  //     .then((data) =>
+  //           res.json({ message: "todo deleted successfully", data })
+  //       )
+  //   } catch (err){
+  //     console.log("right to error")
+  //     return res.status(500).json(err)
+  //   }
+  // }
+
   const deleteTodo = async (req, res) => {
     try{
-      console.log("try")
-      const todo =  await Todo.findByIdAndDelete(req.params.id)
-      await todo.delete()
-      return res.status(200).end()
-    } catch (err){
-      return res.status(500).json(err)
-    }
-  }
+      Todo.findByIdAndRemove(req.params.id, req.body)
+          .then((data) =>
+              res.json({ message: "todo deleted successfully", data }))
+    }catch {((err) =>
+         res.status(404).json({ message: "book not found", error: err.message })
+        );
+    }};
+
+  
 
   
 
 
 export {
-    create, index, show, update, deleteTodo
+    create, index, show, update, deleteTodo as delete
 }
