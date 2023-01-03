@@ -19,14 +19,21 @@ const todoSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
-
+        
         owner: { type: Schema.Types.ObjectId, ref: "Profile" }
+        
+
     },
     {timestamps: true,}
 )
+
+
+
+
 
 const Todo = mongoose.model('Todo', todoSchema)
 
 export {
     Todo
 }
+

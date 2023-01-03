@@ -2,7 +2,7 @@ import { Todo } from "../models/todo.js";
 
 const create = async (req, res) => {
     try{
-      const todo = await new Todo(req.body)
+      const todo =  new Todo(req.body)
       await todo.save()
       return res.status(201).json(todo)
     } catch(err){
@@ -39,18 +39,7 @@ const create = async (req, res) => {
     }
   }
 
-  // const deleteTodo = async (req, res) => {
-  //   console.log("try", req.body, req.params)
-  //   try{
-  //     await Todo.findByIdAndRemove(req.params._id, req.body)
-  //     .then((data) =>
-  //           res.json({ message: "todo deleted successfully", data })
-  //       )
-  //   } catch (err){
-  //     console.log("right to error")
-  //     return res.status(500).json(err)
-  //   }
-  // }
+  
 
   const deleteTodo = async (req, res) => {
     try{
